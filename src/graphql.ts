@@ -7,32 +7,33 @@
 
 /* tslint:disable */
 /* eslint-disable */
-export interface CreateCatInput {
+export class CreateCatInput {
     name?: Nullable<string>;
     age?: Nullable<number>;
 }
 
-export interface IQuery {
-    cats(): Nullable<Nullable<Cat>[]> | Promise<Nullable<Nullable<Cat>[]>>;
-    cat(id: string): Nullable<Cat> | Promise<Nullable<Cat>>;
+export abstract class IQuery {
+    abstract cats(): Nullable<Nullable<Cat>[]> | Promise<Nullable<Nullable<Cat>[]>>;
+
+    abstract cat(id: string): Nullable<Cat> | Promise<Nullable<Cat>>;
 }
 
-export interface IMutation {
-    createCat(createCatInput?: Nullable<CreateCatInput>): Nullable<Cat> | Promise<Nullable<Cat>>;
+export abstract class IMutation {
+    abstract createCat(createCatInput?: Nullable<CreateCatInput>): Nullable<Cat> | Promise<Nullable<Cat>>;
 }
 
-export interface ISubscription {
-    catCreated(): Nullable<Cat> | Promise<Nullable<Cat>>;
+export abstract class ISubscription {
+    abstract catCreated(): Nullable<Cat> | Promise<Nullable<Cat>>;
 }
 
-export interface Owner {
+export class Owner {
     id: number;
     name: string;
     age?: Nullable<number>;
     cats?: Nullable<Cat[]>;
 }
 
-export interface Cat {
+export class Cat {
     id?: Nullable<number>;
     name?: Nullable<string>;
     age?: Nullable<number>;
