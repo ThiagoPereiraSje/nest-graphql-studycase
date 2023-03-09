@@ -16,6 +16,8 @@ export abstract class IQuery {
     abstract cats(): Nullable<Nullable<Cat>[]> | Promise<Nullable<Nullable<Cat>[]>>;
 
     abstract cat(id: string): Nullable<Cat> | Promise<Nullable<Cat>>;
+
+    abstract clients(): Nullable<Nullable<Client>[]> | Promise<Nullable<Nullable<Client>[]>>;
 }
 
 export abstract class IMutation {
@@ -38,6 +40,11 @@ export class Cat {
     name?: Nullable<string>;
     age?: Nullable<number>;
     owner?: Nullable<Owner>;
+}
+
+export class Client {
+    id?: Nullable<number>;
+    name?: Nullable<string>;
 }
 
 type Nullable<T> = T | null;
