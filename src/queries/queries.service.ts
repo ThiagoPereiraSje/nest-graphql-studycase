@@ -13,7 +13,9 @@ const clients = [
 
 @Injectable()
 export class QueriesService {
-  findClients() {
-    return clients;
+  getClient(id: number) {
+    const client = clients.find((v) => v.id === id);
+
+    return client;
   }
 }
